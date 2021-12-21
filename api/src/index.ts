@@ -9,8 +9,8 @@ server.get('/', async (request, reply) => {
 
 const start = async () => {
   try {
-    await server.listen(PORT);
-    console.log('Server started successfully');
+    const address = await server.listen(PORT, '0.0.0.0');
+    console.log('Server started successfully on ', address);
   } catch (err) {
     console.log(err);
     process.exit(1);
