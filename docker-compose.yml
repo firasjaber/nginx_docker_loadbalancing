@@ -1,6 +1,20 @@
 services:
-  api:
+  api_1:
     build:
       context: ./api
+    environment:
+      - INSTANCE_NAME=INSTANCE_1
     ports:
-      - '7000:7000'
+      - '7001:7000'
+  api_2:
+    build:
+      context: ./api
+    environment:
+      - INSTANCE_NAME=INSTANCE_2
+    ports:
+      - '7002:7000'
+  loadbalancer:
+    build:
+      context: ./nginx
+    ports:
+      - '80:80'

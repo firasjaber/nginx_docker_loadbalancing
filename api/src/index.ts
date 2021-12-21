@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 7000;
 const server = fastify();
 
 server.get('/', async (request, reply) => {
-  return { hello: 'world' };
+  return { message: `hello world from ${process.env.INSTANCE_NAME}` };
 });
 
 const start = async () => {
